@@ -1,4 +1,14 @@
-# 第2节，Codeigniter的第一条查询数据，通过docker-compose
+# 第2节，一条命令，启动Codeigniter并连接上数据库
+
+
+
+先把`命令`贴在这儿，在此之前需要进行一些配置。
+
+
+
+```
+docker-compose up
+```
 
 
 
@@ -196,6 +206,36 @@ docker-compose up
 ![image-20210121033605620](assets/image-20210121033605620.png)
 
 
+
+## docker-compose命令说明
+
+
+
+up
+
+尝试自动完成一系列操作：包括构建镜像，（重新）创建服务，启动服务，并关联服务相关容器等
+
+start
+
+启动巳经存在的服务容器
+
+stop
+
+停止已经处于运行状态的容器，但不删除它
+
+
+
+比如：
+
+
+
+```
+docker-compose stop
+```
+
+
+
+![image-20210121040014519](assets/image-20210121040014519.png)
 
 ## 数据库配置：
 
