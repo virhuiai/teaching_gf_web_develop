@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web_ci:
+    image: virhuiai/teaching_gf_web_develop:version-0.0.3
+    ports:
+      - "80:80"
+    volumes:
+      - /Users/virhuiaivirhuiai/Documents/virhuiai-github/teaching_gf_web_develop/framework-4.0.4:/virhuiai/framework-4.0.4/
+    depends_on:
+      - "mysql_db"
+  mysql_db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=Passw0rd!
+      - MYSQL_DATABASE=ci4_database_name

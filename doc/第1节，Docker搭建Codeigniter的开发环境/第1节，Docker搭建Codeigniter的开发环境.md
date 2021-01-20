@@ -1,6 +1,6 @@
 # 第1节，Docker搭建Codeigniter的开发环境
 
-# 官方说明-服务器安装要求
+## 官方说明-服务器安装要求
 
 首先我们到Codeigniter官方网站（中文站）看一下说明
 
@@ -151,8 +151,12 @@ RUN set -eux; \
 
 
 1. e 若指令传回值不等于0，则立即退出shell。　　
+
 2. u 当执行时使用到未定义过的变量，则显示错误信息。
+
 3. x 执行指令后，会先显示该指令及所下的参数。
+
+   
 
 ```
 以上这三点参考自：
@@ -414,7 +418,11 @@ docker cp tmpimg_c:/virhuiai/framework-4.0.4/ /Users/virhuiaivirhuiai/Documents/
 
 
 
-![image-20210120020209836](assets/image-20210120020209836.png)
+![image-20210120024016076](assets/image-20210120024016076.png)
+
+```
+v0.0.3  -》 version-0.03
+```
 
 
 
@@ -424,10 +432,16 @@ docker cp tmpimg_c:/virhuiai/framework-4.0.4/ /Users/virhuiaivirhuiai/Documents/
 
 ![image-20210120020554541](assets/image-20210120020554541.png)
 
+![image-20210120024459278](assets/image-20210120024459278.png)
+
+
+
+![image-20210120024817173](assets/image-20210120024817173.png)
+
 
 
 ```
-virhuiai/teaching_gf_web_develop:v-0.0.2
+virhuiai/teaching_gf_web_develop:version-0.03
 ```
 
 
@@ -447,7 +461,7 @@ docker run -e MYSQL_DATABASE=ci4_database_name -e MYSQL_ROOT_PASSWORD=Passw0rd! 
 
 
 ```
-docker container run --publish 80:80 -v /Users/virhuiaivirhuiai/Documents/ci-framework-4.0.3:/ci4/ --name ci4 --link ci4mysql57:mysql_db -d virhuiai/teaching_gf_web_develop:v-0.0.2
+docker container run --publish 80:80 -v /Users/virhuiaivirhuiai/Documents/ci-framework-4.0.3:/ci4/ --name ci4 --link ci4mysql57:mysql_db -d virhuiai/teaching_gf_web_develop:version-0.03
 ```
 
 
