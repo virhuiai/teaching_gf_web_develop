@@ -33,15 +33,6 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 $routes->resource('news');
-// 与以下方式等同:
-// $routes->get('news/new',             'News::new');
-// $routes->post('news',                'News::create');
-// $routes->get('news',                 'News::index');
-// $routes->get('news/(:segment)',      'News::show/$1');
-// $routes->get('news/(:segment)/edit', 'News::edit/$1');
-// $routes->put('news/(:segment)',      'News::update/$1');
-// $routes->patch('news/(:segment)',    'News::update/$1');
-// $routes->delete('news/(:segment)',   'News::delete/$1');
 
 /**
  * --------------------------------------------------------------------

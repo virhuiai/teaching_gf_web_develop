@@ -22,6 +22,7 @@ class NewsModel extends Model
 
     public function getNews()
     {
+        // 返回所有的news表中的新闻数据
         return $this->findAll();
     }
 }
@@ -101,7 +102,7 @@ News的Controller里添加model并在index()里调用。
 
 
 
-现在数据的增删改查，我查字就做到了啊。
+现在数据的增删改查，查字就做到了啊。
 
 
 
