@@ -1,7 +1,7 @@
 version: "3"
 services:
   web_ci:
-    image: virhuiai/teaching_gf_web_develop:version-0.0.4
+    image: virhuiai/teaching_gf_web_develop:version-0.0.6
     ports:
       - "80:80"
     volumes:
