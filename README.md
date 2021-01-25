@@ -1,31 +1,15 @@
 # teaching_gf_web_develop
 教女朋友学习网页开发
 
-## v0.0.1
-
-```shell
-docker run -d -p 80:80 --name my-apache-php-app -v "$PWD":/var/www/html virhuiai/teaching_gf_web_develop:lasted
-# 进入容器运行初始化一个显示phpinfo()的脚本，
-docker exec -it 9716fb75aded /bin/sh
-/bin/bash /virhuiai/initFirstPhp.sh
-```
-
-此时打开本地浏览器就能看到效果
-
-# v0.0.3
-
-https://www.toutiao.com/i6919534118367691277/
-
-# v0.0.4
+## v0.0.6
 
 docker-compose.yml：
-
 
 ```yaml
 version: "3"
 services:
   web_ci:
-    image: virhuiai/teaching_gf_web_develop:version-0.0.3
+    image: virhuiai/teaching_gf_web_develop:version-0.0.6
     ports:
       - "80:80"
     volumes:
@@ -37,6 +21,13 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=Passw0rd!
       - MYSQL_DATABASE=ci4_database_name
+  vue_element:
+    dockerfile: /Users/virhuiaivirhuiai/Documents/virhuiai-github/teaching_gf_web_develop_element/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - /Users/virhuiaivirhuiai/Documents/virhuiai-github/teaching_gf_web_develop_element/:/web-proj/
+    working_dir: /web-proj/
 ```
 
 运行

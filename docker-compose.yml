@@ -1,15 +1,47 @@
 version: "3"
 services:
   web_ci:
+#    build: /Users/virhuiaivirhuiai/Documents/virhuiai-github/teaching_gf_web_develop/
     image: virhuiai/teaching_gf_web_develop:version-0.0.6
     ports:
       - "80:80"
     volumes:
-      - /Users/virhuiaivirhuiai/Documents/virhuiai-github/teaching_gf_web_develop/framework-4.0.4:/virhuiai/framework-4.0.4/
+      - ./framework-4.0.4:/virhuiai/framework-4.0.4/
     depends_on:
       - "mysql_db"
+    restart: always
   mysql_db:
     image: mysql:5.7
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=Passw0rd!
       - MYSQL_DATABASE=ci4_database_name
+    volumes:
+#      mkdir -p ./conf/mysql/ && mkdir -p ./log/mysql/ && mkdir mysql
+#      - ./conf/mysql/my.cnf:/etc/mysql/my.cnf:ro
+      - ./log/mysql/:/var/log/mysql/:rw
+      - ./mysql/:/var/lib/mysql/:rw
+  vue_element:
+#    build: /Users/virhuiaivirhuiai/Documents/virhuiai-github/teaching_gf_web_develop_element/
+    image: virhuiai/teaching_gf_web_develop_element:version-0.0.2
+    ports:
+      - "8080:8080"
+    volumes:
+      - /Users/virhuiaivirhuiai/Documents/virhuiai-github/teaching_gf_web_develop_element/:/web-proj/
+    working_dir: /web-proj/
+    command: "npm run dev"
+    restart: always
+#    entrypoint: /bin/bash
+  phpmyadmin:
+    image: phpmyadmin:5.0.4-apache
+    restart: always
+    depends_on:
+      - "mysql_db"
+    ports:
+      - 8088:80
+    environment:
+      - PMA_HOST=mysql_db
+      - PMA_USER=root
+      - PMA_PASSWORD=Passw0rd!
+
+#  docker-compose up -d
